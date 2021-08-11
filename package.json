@@ -39,6 +39,7 @@
     "copy-webpack-plugin": "^6.1.0",
     "core-js": "^3.6.5",
     "moment": "^2.27.0",
+    "node-sass": "^6.0.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.1",

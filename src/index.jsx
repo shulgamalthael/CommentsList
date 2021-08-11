@@ -3,14 +3,13 @@ import ReactDOM from 'react-dom';
 import moment from 'moment';
 import { makeStyles, ThemeProvider } from '@material-ui/styles';
 import { createTheme } from '@material-ui/core/styles';
+import "./index.scss";
 import { Grid, Box, Container, Paper, Typography, Avatar,TextField, FormControl  } from '@material-ui/core';
 
 const useStyles = makeStyles( theme => ({
     root: {
-        margin: 0,
-        padding: 0,
         backgroundColor: theme.palette.primary.dark,
-        height: "98vh",
+        height: "100vh",
         display: "flex",
         flexGrow: "1",
         flexDirection: "column",
@@ -63,7 +62,7 @@ const useStyles = makeStyles( theme => ({
     },
     paper: {
         backgroundColor: theme.palette.primary.main,
-        height: "80%",
+        height: "90%",
         margin: "auto",
         width: "50%",
         padding: theme.spacing(2),
@@ -209,7 +208,7 @@ const App = () => {
                                 <Typography>{user.name}</Typography>
                             </Grid>
                             <Grid className={classes.message} item xs>
-                                <Typography>{user.message}</Typography>
+                                <Typography style={{ fontSize: "1em"}}>{user.message}</Typography>
                             </Grid>
                         </Grid>
                         <Grid className={classes.date} item xs={2}>
