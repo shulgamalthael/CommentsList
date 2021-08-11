@@ -63,7 +63,7 @@ const useStyles = makeStyles( theme => ({
         backgroundColor: theme.palette.primary.main,
         height: "80%",
         margin: "auto",
-        width: "70%",
+        width: "50%",
         padding: theme.spacing(2),
         overflow: "auto",
         boxShadow: "0 0 7.77px 3.33px rgba(0,0,0,0.888)",
