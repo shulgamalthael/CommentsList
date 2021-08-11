@@ -189,6 +189,9 @@ const App = () => {
                     <Typography>ExampleBook</Typography>
                 </Box>
             </Paper>
+            <Paper>
+                <TextField />
+            </Paper>
             <Paper className={classes.paper}>
             {commentsList.map( user => {
                 return(
