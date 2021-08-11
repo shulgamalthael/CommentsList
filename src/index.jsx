@@ -192,7 +192,7 @@ const App = () => {
                 </Box>
             </Paper>
             <Paper className={classes.paper}>
-            <Paper>
+            <Paper style={{ position: "fixed" }}>
                 <TextField label="Enter your comment" variant="outlined" className={classes.commentInput} onKeyDown={ e => sendComment(e) } onChange={ e => setMessage(e.target.value) } />
             </Paper>
             {commentsList.map( user => {
