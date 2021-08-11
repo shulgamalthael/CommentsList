@@ -41,8 +41,10 @@ const useStyles = makeStyles( theme => ({
     commentInput: {
         width: "100%",
         backgroundColor: "white",
+        borderRadius: "10%",
         '& label.Mui-focused': {
             color: 'black',
+            fontSize: "1.5em",
           },
           '& .MuiInput-underline:after': {
             borderBottomColor: 'white',
@@ -189,10 +191,10 @@ const App = () => {
                     <Typography>ExampleBook</Typography>
                 </Box>
             </Paper>
-            <Paper>
-                <TextField />
-            </Paper>
             <Paper className={classes.paper}>
+            <Paper>
+                <TextField label="Enter your comment" variant="outlined" className={classes.commentInput} onKeyDown={ e => sendComment(e) } onChange={ e => setMessage(e.target.value) } />
+            </Paper>
             {commentsList.map( user => {
                 return(
                     <Paper className={classes.comment}>
