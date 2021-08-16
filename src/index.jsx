@@ -155,7 +155,7 @@ const App = () => {
     const [ message, setMessage ] = useState("");
 
     useEffect(() => {
-        const comments = [...messages, ...JSON.parse(localStorage.getItem("comments"))];
+        const comments = [...messages, ...[JSON.parse(localStorage.getItem("comments"))]];
         setTimeout( () => setCommentsList(comments), 25 )
     }, [])
 
