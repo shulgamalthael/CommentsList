@@ -37,7 +37,7 @@ const useStyles = makeStyles( theme => ({
         backgroundColor: theme.palette.primary.main,
         boxShadow: "0 0 7.77px 3.33px rgba(0,0,0,0.888)",
     },
-    commentInput: {
+    commentInput: { 
         width: "100%",
         backgroundColor: "white",
         borderRadius: "10%",
@@ -155,7 +155,7 @@ const App = () => {
     const [ message, setMessage ] = useState("");
 
     useEffect(() => {
-        const comments = JSON.parse(localStorage.getItem("comments")) || [];
+        const comments = [...messages, ...JSON.parse(localStorage.getItem("comments"))];
         setTimeout( () => setCommentsList(comments), 25 )
     }, [])
 
@@ -173,13 +173,14 @@ const App = () => {
                         date: moment().format("ddd MM YYYY HH:mm"),
                     }
                 ])
-                setMessage("");
-                localStorage.setItem("comments", JSON.stringify([...messages, ...commentsList, {
+                localStorage.setItem("comments", JSON.stringify([...commentsList, {
                     name: "Guest",
                     message: message,
                     date: moment().format("ddd MM YYYY HH:mm"),
                 }]))
             }
+            setMessage("");
+            console.log(message);
         }
     }
 
@@ -191,8 +192,15 @@ const App = () => {
                 </Box>
             </Paper>
             <Paper className={classes.paper}>
-            <Paper style={{ position: "fixed" }}>
-                <TextField label="Enter your comment" variant="outlined" className={classes.commentInput} onKeyDown={ e => sendComment(e) } onChange={ e => setMessage(e.target.value) } />
+            <Paper style={{ position: "fixed", zIndex: 1000 }}>
+                <TextField 
+                    label="Enter your comment" 
+                    variant="outlined" 
+                    className={classes.commentInput} 
+                    onKeyDown={ e => sendComment(e) } 
+                    onChange={ e => setMessage(e.target.value) } 
+                    value={message} 
+                />
             </Paper>
             {commentsList.map( user => {
                 return(
